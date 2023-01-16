@@ -1,0 +1,7 @@
+SELECT Mov_title
+from movies
+inner join movie_cast
+On Act_id = Act_id
+inner JOIN actor
+ON Mov_year = Act_Name
+where mov_year=2022;
