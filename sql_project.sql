@@ -43,7 +43,7 @@ insert into DIRECTOR values
 (2 , 'JAYANTHASIN' , 8179883652),
 (3 , 'SHREY' , 8291022102),
 (4 , 'RAMAN', 8174067345),
-(5 , 'AJAY' , 7164893652);
+(5 , 'surya' , 9989946702);
 
 insert  into  MOVIES  values
 (1, 'KGF' , 2018 , 'KANNADA' , 1),
@@ -93,6 +93,12 @@ inner JOIN actor
 ON Mov_year = Act_Name
 where mov_year=2022;
 
+select act_name from Actor
+where act_id in(select a.act_id 
+from (select act_id from Movie_cast natural join Movies
+where mov_year<2023)a 
+inner join  (select act_id from Movie_cast natural join Movies 
+where mov_year>2015)b on a.act_id=b.act_id);
 
 SELECT mov_title, MAX(rev_stars)
 FROM movies
@@ -108,4 +114,4 @@ where mov_id in
 (select mov_id from movies
 where dir_id in
 (select dir_id from director
-where Dir_name='chandan'));
+where Dir_name='Surya'));
